@@ -1,5 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
+
+struct Node {
+        char *line;
+        struct Node *next;
+    };
+
+ struct Node *lineArray[25];
 
 void create(char *name){
     FILE *fp=fopen(name,"w+");
@@ -10,14 +18,6 @@ void create(char *name){
         printf("file is open\n");
     }
 }
-void read(char *name){
-    FILE *fp=fopen(name,"r");
-    char in;
-    while((in=getc(fp)!-EOF)){
-        printf("%c",in);
-    }
-    fclose(fp);
-}
 void read(char *name) {
     FILE *fp = fopen(name, "r");
     char in;
@@ -27,7 +27,11 @@ void read(char *name) {
     fclose(fp);
 }
 
+
+
+
 int main(int argc,char *argv[]){
+
 
     char *command=argv[1];
     char *name=argv[2];
